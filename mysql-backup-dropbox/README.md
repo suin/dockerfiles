@@ -6,12 +6,16 @@ Backup MySQL to Dropbox (supports periodic backups & mutli files)
 
 ```
 $ docker run \
+  --name mysql_backup \
+  -d \
+  --restart=always \
+  --log-opt max-size=1m \
+  --log-opt max-file=5 \
   -e MYSQL_USER=root \
   -e MYSQL_PASSWORD=root \
   -e MYSQL_HOST=mysql \
-  -e DROPBOX_PREFIX=my-project- \
   -e DROPBOX_ACCESS_TOKEN=YOUR_TOKEN \
-  -e SCHEDULE=
+  -e SCHEDULE=@daily \
   suin/mysql-backup-dropbox
 ```
 
