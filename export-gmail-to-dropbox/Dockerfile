@@ -12,5 +12,6 @@ ENV SCHEDULE ""
 
 ADD run.sh run.sh
 ADD main.sh main.sh
+ADD save.py save.py
 
 CMD ["sh", "run.sh"]
