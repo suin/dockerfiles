@@ -9,6 +9,7 @@ ENV PASSWORD ""
 ENV FOLDER ""
 ENV DROPBOX_ACCESS_TOKEN ""
 ENV SCHEDULE ""
+ENV TZ "UTC"
 
 ADD run.sh run.sh
 ADD main.sh main.sh

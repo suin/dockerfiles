@@ -47,6 +47,7 @@ docker run \
 - `MYSQL_PASSWORD` the mysql password *required*
 - `DROPBOX_ACCESS_TOKEN` your Dropbox API access token *required*
 - `SCHEDULE` backup schedule time, see explainatons below
+- `TZ` Timezon setting (default: UTC)
 
 ### Automatic Periodic Backups
 

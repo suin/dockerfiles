@@ -4,6 +4,7 @@ import io
 import os
 import email
 import dropbox
+from pytz import timezone
 
 raw_message = sys.stdin.read()
 message = email.message_from_string(raw_message)
@@ -15,7 +16,7 @@ if len(from_header) == 1:
 else:
     [(sender, encode), (_, _)] = from_header
     sender = sender.decode(encode)
-date = email.utils.parsedate_to_datetime(message['date'])
+date = email.utils.parsedate_to_datetime(message['date']).astimezone(timezone(os.environ['TZ']))
 filename = '%s (%s) %s.eml' % (date.strftime("%Y%m%d %H%M%S"), sender, subject)
 print('%s: %s: %s' % (date, sender, subject))
 # with open('emails/' + filename, 'w') as f: f.write(raw_message) # Save as a file
